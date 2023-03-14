@@ -2,9 +2,13 @@ module Main exposing (..)
 
 import Browser
 import Html exposing (div,text, input, button)
+import Html.Events exposing(onClick)
 import String exposing(fromInt)
 
 add a b = a + b
+
+type Messages =
+    Add 
 
 init =
     { value = 52 }
@@ -14,12 +18,14 @@ view model =
             text (fromInt model.value)
             , div [] []
             , input [] []
-            , button [] [text "Add"]
+            , button [ onClick Add ] [text "Add"]
            ]
     --<div></div>
 
-update model = 
-    model
+update msg model = 
+    case msg of
+        Add -> 
+            model
 
 main = 
    Browser.sandbox
