@@ -4,6 +4,7 @@ import Browser
 import Html exposing (div,text, input, button)
 import Html.Events exposing(onClick)
 import String exposing(fromInt)
+import Debug exposing (log)
 
 add a b = a + b
 
@@ -23,6 +24,11 @@ view model =
     --<div></div>
 
 update msg model = 
+    let
+        log1 = log "msg" msg
+        log2 = log "model" model
+    in
+
     case msg of
         Add -> 
             model
